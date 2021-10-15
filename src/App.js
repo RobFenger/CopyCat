@@ -1,25 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import {CopyCat} from './CopyCat';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+class App extends React.Component {
+    constructor(props) {
+    super(props);
+
+    this.state = { 
+      copying: true,
+      input: ''
+    };
+
+    this.toggleTape = this.toggleTape.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  toggleTape() {
+    this.setState({copying: !this.state.copying})
+  }
+
+  handleChange(e) {
+    this.setState({input: e.target.value})
+  }
+  
+  render() {
+    const copying = this.state.copying;
+    const toggleTape = this.toggleTape;
+    const input = this.state.input;
+    const handleChange = this.handleChange;
+    
+    return (
+     <CopyCat  copying={copying} toggleTape={toggleTape} input={input} handleChange={handleChange}/>
+    );
+  };
 }
+
+
+
 
 export default App;

@@ -17,10 +17,12 @@ class App extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  //function to toggle the value for copying between true and false
   toggleTape() {
     this.setState({copying: !this.state.copying})
   }
 
+  //function to setState to the input typed in the input-field
   handleChange(e) {
     this.setState({input: e.target.value})
   }

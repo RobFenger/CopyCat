@@ -35,6 +35,7 @@ export class CopyCat extends React.Component {
           onClick={toggleTape}
           style={styles.imgStyles}
         />
+        {/* if copying is true and there is value (so if the cat has no tape and there is text in the inputfield) display the value */}
         <p>{copying && value}</p>
       </div>
     );
